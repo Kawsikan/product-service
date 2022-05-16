@@ -75,7 +75,7 @@ jobs:
 
     - name: Publish
       run: |-
-        docker push "gcr.io/model-sphere-350017/busybox:$GITHUB_SHA"    
+        docker push "gcr.io/model-sphere-350017/busybox@sha256:$GITHUB_SHA"    
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
