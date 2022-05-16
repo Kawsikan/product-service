@@ -69,9 +69,13 @@ jobs:
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
     # Push the Docker image to Google Artifact Registry
+    # - name: Publish
+    #   run: |-
+    #     docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
+
     - name: Publish
       run: |-
-        docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
+        docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"    
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
