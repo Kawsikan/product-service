@@ -1,12 +1,26 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
+  annotations:
+    autoscaling.alpha.kubernetes.io/conditions: '[{"type":"AbleToScale","status":"True","lastTransitionTime":"2022-05-17T14:22:24Z","reason":"ReadyForNewScale","message":"recommended
+      size matches current size"},{"type":"ScalingActive","status":"False","lastTransitionTime":"2022-05-17T14:22:24Z","reason":"FailedGetResourceMetric","message":"the
+      HPA was unable to compute the replica count: failed to get cpu utilization:
+      missing request for cpu"},{"type":"ScalingLimited","status":"False","lastTransitionTime":"2022-05-17T14:22:24Z","reason":"DesiredWithinRange","message":"the
+      desired count is within the acceptable range"}]'
+    autoscaling.alpha.kubernetes.io/current-metrics: '[{"type":""}]'
+  creationTimestamp: "2022-05-17T14:22:07Z"
   name: product-service
+  namespace: default
+  resourceVersion: "572999"
+  uid: 7b32a849-87c8-4627-83af-9d41e921040a
 spec:
+  maxReplicas: 6
+  minReplicas: 4
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: product-service
-  minReplicas: 1
-  maxReplicas: 5
   targetCPUUtilizationPercentage: 50
+status:
+  currentReplicas: 4
+  desiredReplicas: 4
