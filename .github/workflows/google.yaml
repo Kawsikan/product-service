@@ -86,18 +86,3 @@ jobs:
     #     kubectl rollout status deployment/product-service
     #     kubectl get services -o wide
 
- Deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@main
-    - name: kubectl - Google Cloud GKE cluster.
-      uses: ameydev/gke-kubectl-action@main
-      env:
-        PROJECT_ID: ${{ env.PROJECT_ID }}
-        APPLICATION_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
-        CLUSTER_NAME: ${{ env.GKE_CLUSTER }}
-        ZONE_NAME: ${{ env.GKE_ZONE }}
-      with:
-        args: apply -f k8s/
-   
