@@ -3,23 +3,23 @@ kind: Service
 metadata:
   annotations:
     cloud.google.com/neg: '{"ingress":true}'
-  creationTimestamp: "2022-05-16T11:42:05Z"
+  creationTimestamp: "2022-05-19T14:18:23Z"
   labels:
     app: product-service
   name: product-service
   namespace: default
-  resourceVersion: "5356"
-  uid: c9767952-e065-457d-927e-37c1c2eaa796
+  resourceVersion: "5515"
+  uid: 10d1644b-eea4-47a3-a768-0131c63d8dbb
 spec:
-  clusterIP: 10.96.2.19
+  clusterIP: 10.64.7.205
   clusterIPs:
-  - 10.96.2.19
+  - 10.64.7.205
   externalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - nodePort: 31354
+  - nodePort: 31124
     port: 80
     protocol: TCP
     targetPort: 5000
