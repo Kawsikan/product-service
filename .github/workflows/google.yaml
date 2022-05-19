@@ -81,7 +81,7 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        ./kustomize edit set image gcr.io/PROJECT_ID/busybox:TAG/k8s=gcr.io/$PROJECT_ID/busybox:$GITHUB_SHA/k8s
+        ./kustomize edit set image gcr.io/PROJECT_ID/busybox:TAG=gcr.io/$PROJECT_ID/busybox:$GITHUB_SHA
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/product-service
         kubectl get services -o wide
