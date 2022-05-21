@@ -36,7 +36,7 @@ app.use("/product-service/category", categoryAPI());
 app.use("/product-service/vehicle", vehicleAPI());
 
 app.get("/", (req, res) => {
-  res.status(200).send("Hello World from Product Service Demo!");
+  res.status(200).send("Hello World from Product Service!");
 });
 
 module.exports = app;
