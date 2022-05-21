@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - product-service-hpa.yaml
+  - index.js
